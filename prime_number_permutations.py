@@ -1,5 +1,4 @@
-# Online Python compiler (interpreter) to run Python online.
-# Write Python 3 code in this online editor and run it.
+
 import itertools
 
 number = 935
@@ -22,7 +21,7 @@ for p in perms:
 # print(permlist)
 
 places = len(permlist[0])
-places = 10**places
+places = 10**places//10
 # print(places)
 
 nums = []
@@ -40,5 +39,27 @@ for p in permlist:
         current_place = current_place//10
     if n not in nums:
             nums.append(n)
-print(nums)
+
+# print(nums)
+
+def sieve(n):
+    largest = max(n)
+    print(largest)
+    prime = [True for i in range(largest+1)]
+    p = 2
+    
+    while p*p <= largest:
+        if prime[p] == True:
+            for i in range(p*p, largest+1, p):
+                prime[i] = False
+        p += 1
+    
+    for number in n:
+        print(prime[number])
+    print(len(prime))
+
+sieve(nums)
+
+
+    
 
